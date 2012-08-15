@@ -1,0 +1,40 @@
+﻿.public-teaser {
+  
+}
+
+.public-teaser__left {
+  float: left;
+}
+
+.public-teaser__right {
+  float: left;
+  width: 300px;
+}
+
+.public-teaser br {
+  clear: both;
+}
+.public-teaser-inline-item {
+  float: left;
+}
+
+.public-teaser-image {
+  max-width: 300px;
+  
+  margin-right: 10px;
+}
+
+.public-teaser-price {
+  display: block;
+
+  padding: 8px 0px 8px 10px;
+  color: #545454;
+}
+
+.public-teaser-preamble {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: navy;
+
+  display: block;
+}

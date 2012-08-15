@@ -1,0 +1,11 @@
+D:\Roma\Projects\FeelOfTravel\Src\FeelOfTravel.Model\bin\staging\FeelOfTravel.Model.dll
+D:\Roma\Projects\FeelOfTravel\Src\FeelOfTravel.Model\bin\staging\FeelOfTravel.Model.pdb
+D:\Roma\Projects\FeelOfTravel\Src\FeelOfTravel.Model\obj\staging\ResolveAssemblyReference.cache
+D:\Roma\Projects\FeelOfTravel\Src\FeelOfTravel.Model\obj\staging\FeelOfTravel.Model.dll
+D:\Roma\Projects\FeelOfTravel\Src\FeelOfTravel.Model\obj\staging\FeelOfTravel.Model.pdb
+D:\Projects\FeelOfTravel\FeelOfTravel.Model\bin\staging\FeelOfTravel.Model.dll.config
+D:\Projects\FeelOfTravel\FeelOfTravel.Model\bin\staging\FeelOfTravel.Model.dll
+D:\Projects\FeelOfTravel\FeelOfTravel.Model\bin\staging\FeelOfTravel.Model.pdb
+D:\Projects\FeelOfTravel\FeelOfTravel.Model\obj\staging\ResolveAssemblyReference.cache
+D:\Projects\FeelOfTravel\FeelOfTravel.Model\obj\staging\FeelOfTravel.Model.dll
+D:\Projects\FeelOfTravel\FeelOfTravel.Model\obj\staging\FeelOfTravel.Model.pdb

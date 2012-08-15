@@ -1,0 +1,11 @@
+﻿.main-menu__searchbox {
+  
+  display: none;
+  
+  margin-top: 4px;
+  margin-left: 200px;
+}
+
+.main-menu__searchbox-inactive {
+  color: #A4A4A4;
+}

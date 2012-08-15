@@ -1,0 +1,673 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B8033171-2901-4090-B05A-E73A56A28B8D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FeelOfTravel</RootNamespace>
+    <AssemblyName>FeelOfTravel</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
+    <DesktopBuildPackageLocation>..\..\..\DeploymentZip\FeelOfTravel.zip</DesktopBuildPackageLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'staging|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\FeelOfTravel.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.5.51116.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\.Libraries\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac, Version=2.5.2.830, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\.Libraries\Autofac\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\security.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Controls\EditorEntitiesManagementControl.ascx" />
+    <Content Include="Controls\HorizontalMenuControl.ascx" />
+    <Content Include="Controls\SletatMiniVerticalFilterControl.ascx" />
+    <Content Include="Controls\SletatSearchResultsControl.ascx" />
+    <Content Include="Controls\TeaserViewControl.ascx" />
+    <Content Include="Controls\EntitiesListControl.ascx" />
+    <Content Include="Controls\TinyMceEditorControl.ascx" />
+    <Content Include="EditorPages\Articles\ArticleDetailsPage.aspx" />
+    <Content Include="EditorPages\Teasers\TeaserDetailsPage.aspx" />
+    <Content Include="EditorPages\Articles\ArticleManagementPage.aspx" />
+    <Content Include="EditorPages\Teasers\TeaserManagementPage.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Controls\ContentEditorControl.ascx" />
+    <Content Include="EditorPages\AboutFormEditor.aspx" />
+    <Content Include="ErrorPages\GenericErrorPage.aspx" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\menu-bg.png" />
+    <Content Include="Images\menu-item.png" />
+    <Content Include="jquery-tooltip\changelog.txt" />
+    <Content Include="jquery-tooltip\demo\bg.gif" />
+    <Content Include="jquery-tooltip\demo\chili-1.7.pack.js" />
+    <Content Include="jquery-tooltip\demo\formtip.html" />
+    <Content Include="jquery-tooltip\demo\image.png" />
+    <Content Include="jquery-tooltip\demo\index.html" />
+    <Content Include="jquery-tooltip\demo\karte.png" />
+    <Content Include="jquery-tooltip\demo\screen.css" />
+    <Content Include="jquery-tooltip\demo\shadow.png" />
+    <Content Include="jquery-tooltip\demo\shadow2-reverse.png" />
+    <Content Include="jquery-tooltip\demo\shadow2.png" />
+    <Content Include="jquery-tooltip\jquery.tooltip.css" />
+    <Content Include="jquery-tooltip\jquery.tooltip.js" />
+    <Content Include="jquery-tooltip\jquery.tooltip.min.js" />
+    <Content Include="jquery-tooltip\jquery.tooltip.pack.js" />
+    <Content Include="jquery-tooltip\lib\jquery.bgiframe.js" />
+    <Content Include="jquery-tooltip\lib\jquery.delegate.js" />
+    <Content Include="jquery-tooltip\lib\jquery.dimensions.js" />
+    <Content Include="jquery-tooltip\lib\jquery.js" />
+    <Content Include="PublicPages\About.aspx" />
+    <Content Include="PublicPages\ArticlePage.aspx" />
+    <Content Include="PublicPages\BusTours.aspx" />
+    <Content Include="PublicPages\Cruises.aspx" />
+    <Content Include="PublicPages\HotOffers.aspx" />
+    <Content Include="PublicPages\TestPage2.aspx" />
+    <Content Include="PublicPages\TourSearch.aspx" />
+    <Content Include="Scripts\EditorControl.js" />
+    <Content Include="Scripts\EditorEntities.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\MainMenu.js" />
+    <Content Include="Scripts\ContactForm.js" />
+    <Content Include="Scripts\tinyMce\langs\en.js" />
+    <Content Include="Scripts\tinyMce\plugins\advhr\css\advhr.css" />
+    <Content Include="Scripts\tinyMce\plugins\advhr\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\advhr\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\advhr\js\rule.js" />
+    <Content Include="Scripts\tinyMce\plugins\advhr\langs\en_dlg.js" />
+    <Content Include="Scripts\tinyMce\plugins\advhr\rule.htm" />
+    <Content Include="Scripts\tinyMce\plugins\advimage\css\advimage.css" />
+    <Content Include="Scripts\tinyMce\plugins\advimage\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\advimage\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\advimage\image.htm" />
+    <Content Include="Scripts\tinyMce\plugins\advimage\img\sample.gif" />
+    <Content Include="Scripts\tinyMce\plugins\advimage\js\image.js" />
+    <Content Include="Scripts\tinyMce\plugins\advimage\langs\en_dlg.js" />
+    <Content Include="Scripts\tinyMce\plugins\advlink\css\advlink.css" />
+    <Content Include="Scripts\tinyMce\plugins\advlink\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\advlink\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\advlink\js\advlink.js" />
+    <Content Include="Scripts\tinyMce\plugins\advlink\langs\en_dlg.js" />
+    <Content Include="Scripts\tinyMce\plugins\advlink\link.htm" />
+    <Content Include="Scripts\tinyMce\plugins\advlist\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\advlist\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\autolink\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\autolink\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\autoresize\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\autoresize\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\autosave\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\autosave\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\autosave\langs\en.js" />
+    <Content Include="Scripts\tinyMce\plugins\bbcode\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\bbcode\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\contextmenu\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\contextmenu\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\directionality\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\directionality\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\emotions.htm" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-cool.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-cry.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-embarassed.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-frown.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-innocent.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-kiss.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-laughing.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-money-mouth.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-sealed.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-smile.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-surprised.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-tongue-out.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-undecided.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-wink.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\img\smiley-yell.gif" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\js\emotions.js" />
+    <Content Include="Scripts\tinyMce\plugins\emotions\langs\en_dlg.js" />
+    <Content Include="Scripts\tinyMce\plugins\example\dialog.htm" />
+    <Content Include="Scripts\tinyMce\plugins\example\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\example\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\example\img\example.gif" />
+    <Content Include="Scripts\tinyMce\plugins\example\js\dialog.js" />
+    <Content Include="Scripts\tinyMce\plugins\example\langs\en.js" />
+    <Content Include="Scripts\tinyMce\plugins\example\langs\en_dlg.js" />
+    <Content Include="Scripts\tinyMce\plugins\example_dependency\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\example_dependency\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\fullpage\css\fullpage.css" />
+    <Content Include="Scripts\tinyMce\plugins\fullpage\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\fullpage\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\fullpage\fullpage.htm" />
+    <Content Include="Scripts\tinyMce\plugins\fullpage\js\fullpage.js" />
+    <Content Include="Scripts\tinyMce\plugins\fullpage\langs\en_dlg.js" />
+    <Content Include="Scripts\tinyMce\plugins\fullscreen\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\fullscreen\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\fullscreen\fullscreen.htm" />
+    <Content Include="Scripts\tinyMce\plugins\iespell\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\iespell\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\inlinepopups\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\inlinepopups\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\inlinepopups\skins\clearlooks2\img\alert.gif" />
+    <Content Include="Scripts\tinyMce\plugins\inlinepopups\skins\clearlooks2\img\button.gif" />
+    <Content Include="Scripts\tinyMce\plugins\inlinepopups\skins\clearlooks2\img\buttons.gif" />
+    <Content Include="Scripts\tinyMce\plugins\inlinepopups\skins\clearlooks2\img\confirm.gif" />
+    <Content Include="Scripts\tinyMce\plugins\inlinepopups\skins\clearlooks2\img\corners.gif" />
+    <Content Include="Scripts\tinyMce\plugins\inlinepopups\skins\clearlooks2\img\horizontal.gif" />
+    <Content Include="Scripts\tinyMce\plugins\inlinepopups\skins\clearlooks2\img\vertical.gif" />
+    <Content Include="Scripts\tinyMce\plugins\inlinepopups\skins\clearlooks2\window.css" />
+    <Content Include="Scripts\tinyMce\plugins\inlinepopups\template.htm" />
+    <Content Include="Scripts\tinyMce\plugins\insertdatetime\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\insertdatetime\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\layer\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\layer\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\legacyoutput\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\legacyoutput\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\lists\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\lists\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\media\css\media.css" />
+    <Content Include="Scripts\tinyMce\plugins\media\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\media\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\media\js\embed.js" />
+    <Content Include="Scripts\tinyMce\plugins\media\js\media.js" />
+    <Content Include="Scripts\tinyMce\plugins\media\langs\en_dlg.js" />
+    <Content Include="Scripts\tinyMce\plugins\media\media.htm" />
+    <Content Include="Scripts\tinyMce\plugins\media\moxieplayer.swf" />
+    <Content Include="Scripts\tinyMce\plugins\nonbreaking\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\nonbreaking\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\noneditable\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\noneditable\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\pagebreak\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\pagebreak\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\paste\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\paste\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\paste\js\pastetext.js" />
+    <Content Include="Scripts\tinyMce\plugins\paste\js\pasteword.js" />
+    <Content Include="Scripts\tinyMce\plugins\paste\langs\en_dlg.js" />
+    <Content Include="Scripts\tinyMce\plugins\paste\pastetext.htm" />
+    <Content Include="Scripts\tinyMce\plugins\paste\pasteword.htm" />
+    <Content Include="Scripts\tinyMce\plugins\preview\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\preview\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\preview\example.html" />
+    <Content Include="Scripts\tinyMce\plugins\preview\jscripts\embed.js" />
+    <Content Include="Scripts\tinyMce\plugins\preview\preview.html" />
+    <Content Include="Scripts\tinyMce\plugins\print\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\print\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\save\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\save\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\searchreplace\css\searchreplace.css" />
+    <Content Include="Scripts\tinyMce\plugins\searchreplace\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\searchreplace\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\searchreplace\js\searchreplace.js" />
+    <Content Include="Scripts\tinyMce\plugins\searchreplace\langs\en_dlg.js" />
+    <Content Include="Scripts\tinyMce\plugins\searchreplace\searchreplace.htm" />
+    <Content Include="Scripts\tinyMce\plugins\spellchecker\css\content.css" />
+    <Content Include="Scripts\tinyMce\plugins\spellchecker\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\spellchecker\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\spellchecker\img\wline.gif" />
+    <Content Include="Scripts\tinyMce\plugins\style\css\props.css" />
+    <Content Include="Scripts\tinyMce\plugins\style\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\style\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\style\js\props.js" />
+    <Content Include="Scripts\tinyMce\plugins\style\langs\en_dlg.js" />
+    <Content Include="Scripts\tinyMce\plugins\style\props.htm" />
+    <Content Include="Scripts\tinyMce\plugins\style\readme.txt" />
+    <Content Include="Scripts\tinyMce\plugins\tabfocus\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\tabfocus\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\table\cell.htm" />
+    <Content Include="Scripts\tinyMce\plugins\table\css\cell.css" />
+    <Content Include="Scripts\tinyMce\plugins\table\css\row.css" />
+    <Content Include="Scripts\tinyMce\plugins\table\css\table.css" />
+    <Content Include="Scripts\tinyMce\plugins\table\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\table\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\table\js\cell.js" />
+    <Content Include="Scripts\tinyMce\plugins\table\js\merge_cells.js" />
+    <Content Include="Scripts\tinyMce\plugins\table\js\row.js" />
+    <Content Include="Scripts\tinyMce\plugins\table\js\table.js" />
+    <Content Include="Scripts\tinyMce\plugins\table\langs\en_dlg.js" />
+    <Content Include="Scripts\tinyMce\plugins\table\merge_cells.htm" />
+    <Content Include="Scripts\tinyMce\plugins\table\row.htm" />
+    <Content Include="Scripts\tinyMce\plugins\table\table.htm" />
+    <Content Include="Scripts\tinyMce\plugins\template\blank.htm" />
+    <Content Include="Scripts\tinyMce\plugins\template\css\template.css" />
+    <Content Include="Scripts\tinyMce\plugins\template\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\template\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\template\js\template.js" />
+    <Content Include="Scripts\tinyMce\plugins\template\langs\en_dlg.js" />
+    <Content Include="Scripts\tinyMce\plugins\template\template.htm" />
+    <Content Include="Scripts\tinyMce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Scripts\tinyMce\plugins\visualblocks\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\visualblocks\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\visualchars\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\visualchars\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\wordcount\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\wordcount\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\abbr.htm" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\acronym.htm" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\attributes.htm" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\cite.htm" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\css\attributes.css" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\css\popup.css" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\del.htm" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\editor_plugin.js" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\editor_plugin_src.js" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\ins.htm" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\js\abbr.js" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\js\acronym.js" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\js\attributes.js" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\js\cite.js" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\js\del.js" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\js\element_common.js" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\js\ins.js" />
+    <Content Include="Scripts\tinyMce\plugins\xhtmlxtras\langs\en_dlg.js" />
+    <Content Include="Scripts\tinyMce\themes\advanced\editor_template.js" />
+    <Content Include="Scripts\tinyMce\themes\advanced\editor_template_src.js" />
+    <Content Include="Scripts\tinyMce\themes\advanced\img\colorpicker.jpg" />
+    <Content Include="Scripts\tinyMce\themes\advanced\img\flash.gif" />
+    <Content Include="Scripts\tinyMce\themes\advanced\img\icons.gif" />
+    <Content Include="Scripts\tinyMce\themes\advanced\img\iframe.gif" />
+    <Content Include="Scripts\tinyMce\themes\advanced\img\pagebreak.gif" />
+    <Content Include="Scripts\tinyMce\themes\advanced\img\quicktime.gif" />
+    <Content Include="Scripts\tinyMce\themes\advanced\img\realmedia.gif" />
+    <Content Include="Scripts\tinyMce\themes\advanced\img\shockwave.gif" />
+    <Content Include="Scripts\tinyMce\themes\advanced\img\trans.gif" />
+    <Content Include="Scripts\tinyMce\themes\advanced\img\video.gif" />
+    <Content Include="Scripts\tinyMce\themes\advanced\img\windowsmedia.gif" />
+    <Content Include="Scripts\tinyMce\themes\advanced\js\about.js" />
+    <Content Include="Scripts\tinyMce\themes\advanced\js\anchor.js" />
+    <Content Include="Scripts\tinyMce\themes\advanced\js\charmap.js" />
+    <Content Include="Scripts\tinyMce\themes\advanced\js\color_picker.js" />
+    <Content Include="Scripts\tinyMce\themes\advanced\js\image.js" />
+    <Content Include="Scripts\tinyMce\themes\advanced\js\link.js" />
+    <Content Include="Scripts\tinyMce\themes\advanced\js\source_editor.js" />
+    <Content Include="Scripts\tinyMce\themes\advanced\langs\en.js" />
+    <Content Include="Scripts\tinyMce\themes\advanced\langs\en_dlg.js" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\default\content.css" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\default\dialog.css" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\default\img\buttons.png" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\default\img\items.gif" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\default\img\menu_arrow.gif" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\default\img\menu_check.gif" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\default\img\progress.gif" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\default\img\tabs.gif" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\default\ui.css" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\highcontrast\content.css" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\highcontrast\dialog.css" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\highcontrast\ui.css" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\o2k7\content.css" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\o2k7\dialog.css" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\o2k7\img\button_bg.png" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\o2k7\img\button_bg_black.png" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\o2k7\img\button_bg_silver.png" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\o2k7\ui.css" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\o2k7\ui_black.css" />
+    <Content Include="Scripts\tinyMce\themes\advanced\skins\o2k7\ui_silver.css" />
+    <Content Include="Scripts\tinyMce\themes\simple\editor_template.js" />
+    <Content Include="Scripts\tinyMce\themes\simple\editor_template_src.js" />
+    <Content Include="Scripts\tinyMce\themes\simple\img\icons.gif" />
+    <Content Include="Scripts\tinyMce\themes\simple\langs\en.js" />
+    <Content Include="Scripts\tinyMce\themes\simple\skins\default\content.css" />
+    <Content Include="Scripts\tinyMce\themes\simple\skins\default\ui.css" />
+    <Content Include="Scripts\tinyMce\themes\simple\skins\o2k7\content.css" />
+    <Content Include="Scripts\tinyMce\themes\simple\skins\o2k7\img\button_bg.png" />
+    <Content Include="Scripts\tinyMce\themes\simple\skins\o2k7\ui.css" />
+    <Content Include="Scripts\tinyMce\tiny_mce.js" />
+    <Content Include="Scripts\tinyMce\tiny_mce_popup.js" />
+    <Content Include="Scripts\tinyMce\tiny_mce_src.js" />
+    <Content Include="Scripts\tinyMce\utils\editable_selects.js" />
+    <Content Include="Scripts\tinyMce\utils\form_utils.js" />
+    <Content Include="Scripts\tinyMce\utils\mctabs.js" />
+    <Content Include="Scripts\tinyMce\utils\validate.js" />
+    <Content Include="Scripts\Utils.js" />
+    <Content Include="Styles\about-page.css" />
+    <Content Include="Styles\editor\editor__about-page.css" />
+    <Content Include="Styles\login.css" />
+    <Content Include="Styles\main-menu\main-menu__searchbox.css" />
+    <Content Include="Styles\main-menu\main-menu.css" />
+    <Content Include="Styles\main-menu\main-menu__third-level.css" />
+    <Content Include="Styles\main-menu\main-menu__first-level.css" />
+    <Content Include="Styles\main-menu\main-menu__second-level.css" />
+    <Content Include="Styles\master-page.css" />
+    <Content Include="Styles\public-pages-common.css" />
+    <Content Include="Styles\common.css" />
+    <Content Include="Styles\sletat.css" />
+    <Content Include="Styles\editor-management.css" />
+    <Content Include="Styles\editor-teaser-properties.css" />
+    <Content Include="Styles\effects.css" />
+    <Content Include="Styles\public-teaser.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="PublicPages\TestPage.aspx" />
+    <Content Include="Styles\word.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutofacSupport\CompositionRoot.cs" />
+    <Compile Include="AutofacSupport\CompositionRootBuilder.cs" />
+    <Compile Include="Controls\EditorEntitiesManagementControl.ascx.cs">
+      <DependentUpon>EditorEntitiesManagementControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\EditorEntitiesManagementControl.ascx.designer.cs">
+      <DependentUpon>EditorEntitiesManagementControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HorizontalMenuControl.ascx.cs">
+      <DependentUpon>HorizontalMenuControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\HorizontalMenuControl.ascx.designer.cs">
+      <DependentUpon>HorizontalMenuControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EntitiesListControl.ascx.cs">
+      <DependentUpon>EntitiesListControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\EntitiesListControl.ascx.designer.cs">
+      <DependentUpon>EntitiesListControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TinyMceEditorControl.ascx.cs">
+      <DependentUpon>TinyMceEditorControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\TinyMceEditorControl.ascx.designer.cs">
+      <DependentUpon>TinyMceEditorControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditorPages\Teasers\TeaserManagementPage.aspx.cs">
+      <DependentUpon>TeaserManagementPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditorPages\Teasers\TeaserManagementPage.aspx.designer.cs">
+      <DependentUpon>TeaserManagementPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPages\GenericErrorPage.aspx.cs">
+      <DependentUpon>GenericErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPages\GenericErrorPage.aspx.designer.cs">
+      <DependentUpon>GenericErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\RefreshHandler.cs" />
+    <Compile Include="Handlers\TinyMceEditorHandler.cs" />
+    <Compile Include="Logic\ArticlesProvider.cs" />
+    <Compile Include="Logic\Common\JsonHelper.cs" />
+    <Compile Include="Logic\Common\NumberFormatter.cs" />
+    <Compile Include="Logic\Common\WebPathExtensions.cs" />
+    <Compile Include="Logic\CompositionRootHelper.cs" />
+    <Compile Include="Logic\EntitiesTransferObject.cs" />
+    <Compile Include="Logic\IEditorEntitiesManager.cs" />
+    <Compile Include="Logic\IEditorEntitiesProvider.cs" />
+    <Compile Include="Controls\TeaserViewControl.ascx.cs">
+      <DependentUpon>TeaserViewControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\TeaserViewControl.ascx.designer.cs">
+      <DependentUpon>TeaserViewControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditorPages\Articles\ArticleDetailsPage.aspx.cs">
+      <DependentUpon>ArticleDetailsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditorPages\Articles\ArticleDetailsPage.aspx.designer.cs">
+      <DependentUpon>ArticleDetailsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditorPages\Teasers\TeaserDetailsPage.aspx.cs">
+      <DependentUpon>TeaserDetailsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditorPages\Teasers\TeaserDetailsPage.aspx.designer.cs">
+      <DependentUpon>TeaserDetailsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditorPages\Articles\ArticleManagementPage.aspx.cs">
+      <DependentUpon>ArticleManagementPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditorPages\Articles\ArticleManagementPage.aspx.designer.cs">
+      <DependentUpon>ArticleManagementPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\Common\PageHelper.cs" />
+    <Compile Include="Logic\PageException.cs" />
+    <Compile Include="Logic\Providers\XmlMembershipProvider.cs" />
+    <Compile Include="Logic\Providers\XmlRoleProvider.cs" />
+    <Compile Include="Logic\Providers\SecurityXmlHelper.cs" />
+    <Compile Include="Logic\TeasersProvider.cs" />
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PublicPages\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PublicPages\ArticlePage.aspx.cs">
+      <DependentUpon>ArticlePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\ArticlePage.aspx.designer.cs">
+      <DependentUpon>ArticlePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PublicPages\BusTours.aspx.cs">
+      <DependentUpon>BusTours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\BusTours.aspx.designer.cs">
+      <DependentUpon>BusTours.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PublicPages\Cruises.aspx.cs">
+      <DependentUpon>Cruises.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\Cruises.aspx.designer.cs">
+      <DependentUpon>Cruises.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PublicPages\HotOffers.aspx.cs">
+      <DependentUpon>HotOffers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\HotOffers.aspx.designer.cs">
+      <DependentUpon>HotOffers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PublicPages\TestPage2.aspx.cs">
+      <DependentUpon>TestPage2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\TestPage2.aspx.designer.cs">
+      <DependentUpon>TestPage2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PublicPages\TourSearch.aspx.cs">
+      <DependentUpon>TourSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\TourSearch.aspx.designer.cs">
+      <DependentUpon>TourSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PublicPages\TestPage.aspx.cs">
+      <DependentUpon>TestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\TestPage.aspx.designer.cs">
+      <DependentUpon>TestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\Common\Constants.cs" />
+    <Compile Include="Logic\Common\Utils.cs" />
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ContentEditorControl.ascx.cs">
+      <DependentUpon>ContentEditorControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ContentEditorControl.ascx.designer.cs">
+      <DependentUpon>ContentEditorControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditorPages\AboutFormEditor.aspx.cs">
+      <DependentUpon>AboutFormEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditorPages\AboutFormEditor.aspx.designer.cs">
+      <DependentUpon>AboutFormEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Browsers\CSSFriendlyAdapters.browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.staging.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UploadedImages\Teasers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="jquery-tooltip\todo" />
+    <Content Include="MasterPage.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FeelOfTravel.Business\FeelOfTravel.Business.csproj">
+      <Project>{F989CC8F-E7E4-46D1-83FD-5839F0D6F6F0}</Project>
+      <Name>FeelOfTravel.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FeelOfTravel.SqlDataAccess\FeelOfTravel.SqlDataAccess.csproj">
+      <Project>{C7EB3BBD-3294-4B3A-914C-1310D8DE74AD}</Project>
+      <Name>FeelOfTravel.SqlDataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

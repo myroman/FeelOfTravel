@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<securityData>
+  <users>
+    <user userName="editor" password="i/EuiHYSAGfYowa72deOonIafcA=" key="11767a3b-377d-48ef-b55e-838db9a75355" email="editor@m.com" lastLogin="11.08.2012 18:51:49" createDate="30.03.2012 19:32:44" approved="True" />
+    <user userName="asdf" password="vzl9OD75J+qNxvlzLdi2apd9xOg=" key="ca09e9a3-7740-48d0-aa9d-0e86f4a1bfbf" email="editor3" lastLogin="10.04.2012 18:58:09" createDate="10.04.2012 18:58:09" approved="True" />
+  </users>
+  <roles>
+    <role roleName="Editors">
+      <user>editor</user>
+    </role>
+  </roles>
+</securityData>

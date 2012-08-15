@@ -1,0 +1,18 @@
+﻿.main-menu__third-level {
+  float: left;
+  position: absolute;
+	
+  padding-left: 2px;
+  display: none;  
+  
+  list-style-type: none;
+  list-style-position: inside;  
+}
+
+.main-menu__third-level > li {
+  background-image: url(../../Images/menu-item.png);
+}
+
+.main-menu__third-level > li a {
+  z-index: 40;
+}

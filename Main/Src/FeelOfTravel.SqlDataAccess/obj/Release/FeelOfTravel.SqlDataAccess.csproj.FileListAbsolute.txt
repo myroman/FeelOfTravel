@@ -1,0 +1,11 @@
+D:\Projects\ff Tfs upload\Main\Src\FeelOfTravel.SqlDataAccess\obj\Release\ResolveAssemblyReference.cache
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\obj\Release\ResolveAssemblyReference.cache
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\bin\Release\FeelOfTravel.SqlDataAccess.dll.config
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\bin\Release\FeelOfTravel.SqlDataAccess.dll
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\bin\Release\FeelOfTravel.SqlDataAccess.pdb
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\bin\Release\Autofac.dll
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\bin\Release\FeelOfTravel.Business.dll
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\bin\Release\FeelOfTravel.Business.pdb
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\bin\Release\Autofac.xml
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\obj\Release\FeelOfTravel.SqlDataAccess.dll
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\obj\Release\FeelOfTravel.SqlDataAccess.pdb

@@ -1,0 +1,62 @@
+﻿@import "main-menu/main-menu.css";
+@import "common.css";
+@import "login.css";
+@import "public-teaser.css";
+
+body {
+  background-color: silver;
+  font-family: Arial, Tahoma, 'Helvetica Neue', Helvetica, 'DejaVu Sans', sans-serif;
+}
+
+.logo {
+  background-color: whitesmoke;
+
+  padding: 10px;
+}
+.master-page-content {
+  /*height: 1000px;*/
+  padding: 10px;
+  overflow: hidden;
+  
+  font-size: 14px;
+}
+
+.two-columns {
+  margin-top: 4px;
+  color: black;
+}
+
+/* main column */
+.mainColumn {
+  float: left;
+  
+  width: 650px;
+  height: 100%;
+
+  margin-right: 5px;
+  padding: 10px; 
+
+  background-color: rgb(255, 230, 183);
+}
+
+/* right  column */
+.rightColumn {  
+  overflow: hidden;
+  
+  padding: 10px;
+  
+  background-color: rgb(255, 230, 183);
+  
+  /*implement*/
+  display: none;
+}
+
+.footer {
+  font-size: small;
+  color: #4e5766;
+  text-align: center;
+  line-height: normal;
+  
+  padding: 8px 0px 0px 0px;
+  margin: 0px auto;  
+}

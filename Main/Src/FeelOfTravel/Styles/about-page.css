@@ -1,0 +1,36 @@
+﻿.about__about-content {
+  font-family: "Verdana";
+}
+
+h2 {
+    /*font-family: "Century Gothic";*/
+    font-family: "Verdana";
+}
+
+.about-contacts-text {
+  float: left;
+  width: 350px;
+
+  font-family: "Verdana";
+}
+
+.about-contacts-mail {
+  
+}
+
+.about-contacts-map {
+  font-family: Verdana, sans-serif;
+  
+  padding: 6px;
+  border: thin dotted #C0C0C0;
+  
+  width: 250px;
+  height: 250px;
+
+  float: right;
+}
+
+.about__contacts-content p {
+  margin:0; padding:0;
+}
+

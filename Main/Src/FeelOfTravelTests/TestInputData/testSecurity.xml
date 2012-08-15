@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<securityData>
+  <!--user sections-->
+  <users>
+    <user userName="Roman" password="vK+ZTP7pzSCJQrY+EbNiAYHJIs4=" key="ae9d1da6-c94d-4488-a0b1-fe40b69587d0" email="roman@test.com" lastLogin="29.03.2012 11:12:01" createDate="29.03.2012 11:12:01" approved="True" />
+    <user userName="Admin" password="RusmPDBtuBC/s+9mT98R2Qalf/g=" key="d0ceb253-5cc6-4509-9132-b84e7be65821" email="admin@test.com" lastLogin="29.03.2012 11:13:48" createDate="29.03.2012 11:13:48" approved="True" />
+  </users>
+  <!--role section-->
+  <roles>
+    <role roleName="Admins">
+      <user>Admin</user>
+    </role>
+    <role roleName="Editors">
+      <!--<user>Roman</user>-->
+    </role>
+    <role roleName="Guests"></role>
+  </roles>
+</securityData>

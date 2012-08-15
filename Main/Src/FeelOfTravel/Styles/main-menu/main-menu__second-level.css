@@ -1,0 +1,19 @@
+﻿.main-menu__second-level {
+  position: absolute;
+  
+  padding-left: 0;
+  padding-top: 4px;
+  
+  display: none;
+  
+  list-style-type: none;  
+}
+
+.main-menu__second-level > li {
+  background-image: url(../../Images/menu-item.png);
+  width: 200px;
+}
+
+.main-menu__second-level > li a {
+  z-index: 30;
+}

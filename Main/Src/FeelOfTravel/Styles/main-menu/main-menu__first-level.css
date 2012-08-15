@@ -1,0 +1,40 @@
+﻿.main-menu__first-level {
+  margin: 20px 0 0 60px;
+  padding-left: 4px;
+    
+  float: left;
+}
+
+.main-menu__first-level > li {
+  float: left;
+  margin: 0;
+  width: inherit;
+  height: 29px;
+  position: relative;  
+  
+  list-style: none;  
+}
+
+.main-menu__first-level > li a, .main-menu__first-level > li span {
+  font: 700 12px/25px "Elephant", "Georgia", Gadget, sans-serif;
+  color: rgb(255, 184, 141);
+  text-decoration: none; 
+  letter-spacing: 0px;
+  
+  position: relative;
+  padding: 0 10px 0 10px;
+  border-bottom: none;
+  
+  display: block;
+  height: 29px;
+  vertical-align: baseline;
+  z-index: 20;  
+}
+
+.main-menu__first-level > li a:hover, .main-menu__first-level > li span:hover {
+  color: rgb(236, 142, 69);
+}
+
+.main-menu__first-level > li span:hover {
+  cursor: pointer;
+}

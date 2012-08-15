@@ -1,0 +1,8 @@
+D:\Projects\ff Tfs upload\Main\Src\FeelOfTravel.Business\obj\Release\ResolveAssemblyReference.cache
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.Business\obj\Release\ResolveAssemblyReference.cache
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.Business\bin\Release\FeelOfTravel.Business.dll
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.Business\bin\Release\FeelOfTravel.Business.pdb
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.Business\bin\Release\Autofac.dll
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.Business\bin\Release\Autofac.xml
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.Business\obj\Release\FeelOfTravel.Business.dll
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.Business\obj\Release\FeelOfTravel.Business.pdb

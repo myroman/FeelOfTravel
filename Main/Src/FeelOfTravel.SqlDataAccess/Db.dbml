@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FeelOfTravelDb" Class="DbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=RPAVLUSHCHENKO\SWEDENSERVER;Initial Catalog=FeelOfTravelDb;Integrated Security=True" SettingsObjectName="FeelOfTravel.SqlDataAccess.Properties.Settings" SettingsPropertyName="FeelOfTravelDbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbAboutPage" Member="tbAboutPages">
+    <Type Name="tbAboutPage">
+      <Column Name="entryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="text" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbTeasers" Member="tbTeasers">
+    <Type Name="tbTeaser">
+      <Column Name="teaserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="preamble" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="imageLink" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="relatedArticleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tbArticle_tbTeaser" Member="tbArticle" ThisKey="relatedArticleId" OtherKey="articleId" Type="tbArticle" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbArticles" Member="tbArticles">
+    <Type Name="tbArticle">
+      <Column Name="articleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="articleTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="header" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="text" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="tbArticle_tbTeaser" Member="tbTeasers" ThisKey="articleId" OtherKey="relatedArticleId" Type="tbTeaser" />
+      <Association Name="tbArticleType_tbArticle" Member="tbArticleType" ThisKey="articleTypeId" OtherKey="articleTypeId" Type="tbArticleType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbArticleTypes" Member="tbArticleTypes">
+    <Type Name="tbArticleType">
+      <Column Name="articleTypeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="articleType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="tbArticleType_tbArticle" Member="tbArticles" ThisKey="articleTypeId" OtherKey="articleTypeId" Type="tbArticle" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbContactsPage" Member="tbContactsPages">
+    <Type Name="tbContactsPage">
+      <Column Name="entryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="text" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbMainPage" Member="tbMainPages">
+    <Type Name="tbMainPage">
+      <Column Name="entryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="text" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,87 @@
+﻿.entity-main-div
+{
+  padding: 10px;
+  border: solid #CC0000;
+  width: 600px;
+}
+
+.entity-simple-text {
+  display: block;
+  width: 300px;
+  float: left;
+  margin-bottom: 10px;
+}
+
+.entity-money-amount {
+  float: left;
+  width: 70px;
+}
+
+.entity-label {
+  display: block;
+  float: left;
+  width: 90px;
+  padding-right: 20px;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.entity-label-status {
+  font-size: large;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-variant: normal;
+  color: #003366;
+}
+
+.label-error {
+  color: red;
+}
+
+.label-invisible {
+  display: none;
+}
+
+.entity-memo {
+  width: 480px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.entity-br {
+  clear: left;
+}
+
+.entity-buttonSubmit {
+  margin-left: 90px;
+}
+
+.entity-list-refresh {
+  
+}
+.entity-list {
+  
+}
+.entity-list-button {
+  background-color: transparent;
+  border: 0;
+  padding: 0;  
+  
+  text-decoration: underline;
+
+  cursor: pointer;
+  font-size: small;
+}
+
+.entity-list-button:hover {  
+  color: #000099; 
+}
+
+/* edit, delete controls*/
+.entity-edit {
+  
+}
+
+.entity-delete {
+  
+}

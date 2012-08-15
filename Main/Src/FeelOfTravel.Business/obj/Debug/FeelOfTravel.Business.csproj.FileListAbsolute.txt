@@ -1,0 +1,21 @@
+D:\Projects\FeelOfTravel\FeelOfTravel.Model\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\FeelOfTravel\FeelOfTravel.Business\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\FeelOfTravel\FeelOfTravel.Business\bin\Debug\FeelOfTravel.Business.dll
+D:\Projects\FeelOfTravel\FeelOfTravel.Business\bin\Debug\FeelOfTravel.Business.pdb
+D:\Projects\FeelOfTravel\FeelOfTravel.Business\obj\Debug\FeelOfTravel.Business.dll
+D:\Projects\FeelOfTravel\FeelOfTravel.Business\obj\Debug\FeelOfTravel.Business.pdb
+D:\Projects\FeelOfTravel\FeelOfTravel.Business\bin\Debug\Autofac.Configuration.dll
+D:\Projects\FeelOfTravel\FeelOfTravel.Business\bin\Debug\Autofac.dll
+D:\Projects\FeelOfTravel\FeelOfTravel.Business\bin\Debug\Autofac.xml
+D:\Projects\ff Tfs upload\Main\Src\FeelOfTravel.Business\bin\Debug\FeelOfTravel.Business.dll
+D:\Projects\ff Tfs upload\Main\Src\FeelOfTravel.Business\bin\Debug\FeelOfTravel.Business.pdb
+D:\Projects\ff Tfs upload\Main\Src\FeelOfTravel.Business\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\ff Tfs upload\Main\Src\FeelOfTravel.Business\obj\Debug\FeelOfTravel.Business.dll
+D:\Projects\ff Tfs upload\Main\Src\FeelOfTravel.Business\obj\Debug\FeelOfTravel.Business.pdb
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.Business\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.Business\bin\Debug\FeelOfTravel.Business.dll
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.Business\bin\Debug\FeelOfTravel.Business.pdb
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.Business\bin\Debug\Autofac.dll
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.Business\bin\Debug\Autofac.xml
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.Business\obj\Debug\FeelOfTravel.Business.dll
+D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.Business\obj\Debug\FeelOfTravel.Business.pdb

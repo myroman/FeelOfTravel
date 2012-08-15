@@ -1,0 +1,11 @@
+D:\Roma\Projects\FeelOfTravel\Src\FeelOfTravel.Model\bin\Debug\FeelOfTravel.Model.dll
+D:\Roma\Projects\FeelOfTravel\Src\FeelOfTravel.Model\bin\Debug\FeelOfTravel.Model.pdb
+D:\Roma\Projects\FeelOfTravel\Src\FeelOfTravel.Model\obj\Debug\ResolveAssemblyReference.cache
+D:\Roma\Projects\FeelOfTravel\Src\FeelOfTravel.Model\obj\Debug\FeelOfTravel.Model.dll
+D:\Roma\Projects\FeelOfTravel\Src\FeelOfTravel.Model\obj\Debug\FeelOfTravel.Model.pdb
+D:\Projects\FeelOfTravel\FeelOfTravel.Model\bin\Debug\FeelOfTravel.Model.dll.config
+D:\Projects\FeelOfTravel\FeelOfTravel.Model\bin\Debug\FeelOfTravel.Model.dll
+D:\Projects\FeelOfTravel\FeelOfTravel.Model\bin\Debug\FeelOfTravel.Model.pdb
+D:\Projects\FeelOfTravel\FeelOfTravel.Model\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\FeelOfTravel\FeelOfTravel.Model\obj\Debug\FeelOfTravel.Model.dll
+D:\Projects\FeelOfTravel\FeelOfTravel.Model\obj\Debug\FeelOfTravel.Model.pdb
