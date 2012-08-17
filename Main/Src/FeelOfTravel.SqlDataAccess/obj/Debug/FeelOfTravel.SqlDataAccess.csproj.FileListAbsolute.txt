@@ -17,13 +17,3 @@ D:\Projects\ff Tfs upload\Main\Src\FeelOfTravel.SqlDataAccess\bin\Debug\FeelOfTr
 D:\Projects\ff Tfs upload\Main\Src\FeelOfTravel.SqlDataAccess\obj\Debug\ResolveAssemblyReference.cache
 D:\Projects\ff Tfs upload\Main\Src\FeelOfTravel.SqlDataAccess\obj\Debug\FeelOfTravel.SqlDataAccess.dll
 D:\Projects\ff Tfs upload\Main\Src\FeelOfTravel.SqlDataAccess\obj\Debug\FeelOfTravel.SqlDataAccess.pdb
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\obj\Debug\ResolveAssemblyReference.cache
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\bin\Debug\FeelOfTravel.SqlDataAccess.dll.config
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\bin\Debug\FeelOfTravel.SqlDataAccess.dll
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\bin\Debug\FeelOfTravel.SqlDataAccess.pdb
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\bin\Debug\Autofac.dll
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\bin\Debug\FeelOfTravel.Business.dll
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\bin\Debug\FeelOfTravel.Business.pdb
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\bin\Debug\Autofac.xml
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\obj\Debug\FeelOfTravel.SqlDataAccess.dll
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel.SqlDataAccess\obj\Debug\FeelOfTravel.SqlDataAccess.pdb

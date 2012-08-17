@@ -6,16 +6,14 @@ using System.Web.UI;
 
 using FeelOfTravel.Business.Services;
 using FeelOfTravel.Controls;
-using FeelOfTravel.EditorPages.Articles;
-using FeelOfTravel.EditorPages.Teasers;
+using FeelOfTravel.EditorPages.Offers;
 using FeelOfTravel.Logic;
 
 namespace FeelOfTravel.Handlers
 {
     public class RefreshHandler : IHttpHandler
     {
-        private ITeaserService teaserService;
-        private IArticleService articleService;
+        private IOfferService offerService;
 
         #region IHttpHandler Members
 
@@ -56,60 +54,32 @@ namespace FeelOfTravel.Handlers
         private void InjectServices(HttpContext context)
         {
             var root = CompositionRootHelper.GetCompositionRoot(context);
-            teaserService = root.TeaserService;
-            articleService = root.ArticleService;
+            offerService = root.OfferService;
         }
         #endregion
         private string GetResponse(string type)
         {
-            if (type == "article")
+            if (type == "offer")
             {
                 return GetArticlesList();
             }
             
-            if (type == "teaser")
-            {
-                return GetTeasersList();
-            }
-
             throw new ArgumentException("Wrong king of entities", "type");
-        }
-
-        private string GetTeasersList()
-        {
-            var pageHolder = new TeaserManagementPage();
-            var response = new StringBuilder();
-            using (var stringWriter = new StringWriter(response))
-            {
-                using (var htmlWriter = new HtmlTextWriter(stringWriter))
-                {
-                    var entitiesControl = (EntitiesListControl)pageHolder.LoadControl("~/Controls/EntitiesListControl.ascx");
-                    var provider = new TeasersProvider(teaserService);
-
-                    entitiesControl.Provider = provider;
-                    entitiesControl.DataSource = provider.Teasers;
-                    entitiesControl.DataBind();
-
-                    entitiesControl.RenderControl(htmlWriter);
-                }
-            }
-
-            return response.ToString();
         }
 
         private string GetArticlesList()
         {
-            var pageHolder = new ArticleManagementPage();
+            var pageHolder = new OfferManagementPage();
             var response = new StringBuilder();
             using (var stringWriter = new StringWriter(response))
             {
                 using (var htmlWriter = new HtmlTextWriter(stringWriter))
                 {
                     var entitiesControl = (EntitiesListControl)pageHolder.LoadControl("~/Controls/EntitiesListControl.ascx");
-                    var provider = new ArticlesProvider(articleService);
+                    var provider = new OffersProvider(offerService);
 
                     entitiesControl.Provider = provider;
-                    entitiesControl.DataSource = provider.Articles;
+                    entitiesControl.DataSource = provider.Offers;
                     entitiesControl.DataBind();
 
                     entitiesControl.RenderControl(htmlWriter);

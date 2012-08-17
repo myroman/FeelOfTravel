@@ -17,16 +17,16 @@ namespace FeelOfTravel.SqlDataAccess.Repositories
             // TODO: setup linq2sql connection issues.
             var connectionString = ConfigurationManager.ConnectionStrings["MyConnString"].ConnectionString;
             
-            builder.RegisterType<SqlArticleRepository>()
-                .As<IArticleRepository>()
+            builder.RegisterType<SqlOfferRepository>()
+                .As<IOfferRepository>()
                 .WithParameter(ConnectionStringParam, connectionString)
                 .SingleInstance();
-            builder.RegisterType<SqlTeaserRepository>()
-                .As<ITeaserRepository>()
+            builder.RegisterType<SqlOfferTypeRepository>()
+                .As<IOfferTypeRepository>()
                 .WithParameter(ConnectionStringParam, connectionString)
                 .SingleInstance();
-            builder.RegisterType<SqlArticleTypeRepository>()
-                .As<IArticleTypeRepository>()
+            builder.RegisterType<SqlCategoryRepository>()
+                .As<ICategoryRepository>()
                 .WithParameter(ConnectionStringParam, connectionString)
                 .SingleInstance();
 

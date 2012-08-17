@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="HorizontalMenuControl.ascx.cs" Inherits="FeelOfTravel.Controls.HorizontalMenuControl" %>
+<%@ Import Namespace="FeelOfTravel.Business.Domain" %>
 <script src="<%= ResolveClientUrl("~/Scripts/MainMenu.js") %>" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -21,24 +22,24 @@
 
 <div class="main-menu__container cf">
   <div class="main-menu__logo-text">
-    <a href="../Default.aspx">
+    <a href="<%= DefaultPageUrl %>">
       Feel of travel
     </a>
   </div>
 
   <ul class="main-menu__first-level">
-    <li><a href=<%= ResolveClientUrl("~/Default.aspx") %>>Главная</a></li>
-    <li><a href=<%= ResolveClientUrl("~/PublicPages/About.aspx") %>>О компании</a></li>
+    <li><a href="<%= DefaultPageUrl %>">Главная</a></li>
+    <li><a href="<%= ResolveClientUrl("~/PublicPages/About.aspx") %>">О компании</a></li>
     <li class="showing-sub-menu">
       <span>Акции</span>
       <ul class="main-menu__second-level showing-sub-menu">
-        <li><a href=<%= ResolveClientUrl("~/PublicPages/HotOffers.aspx") %>>Спецпредложения</a></li>
-        <li><a href=<%= ResolveClientUrl("~/PublicPages/Cruises.aspx") %>>Круизы</a></li>
-        <li><a href=<%= ResolveClientUrl("~/PublicPages/BusTours.aspx") %>>Автобусные туры</a></li>
+        <li><a href="<%= GetOffersUrl(OfferTypes.HotOffer) %>">Спецпредложения</a></li>
+        <li><a href="<%=GetOffersUrl(OfferTypes.Cruises) %>">Круизы</a></li>
+        <li><a href="<%= GetOffersUrl(OfferTypes.BusTours) %>">Автобусные туры</a></li>
       </ul>
     </li>
 
-    <li><a href=<%= ResolveClientUrl("~/PublicPages/TourSearch.aspx") %>>Поиск туров</a></li>
+    <li><a href="<%= ResolveClientUrl("~/PublicPages/TourSearch.aspx") %>">Поиск туров</a></li>
 
     <asp:PlaceHolder runat="server" Visible="<%# CurrentUserIsEditor %>">
     
@@ -46,15 +47,9 @@
         <ul class="main-menu__second-level showing-sub-menu">
           <li><a href="<%= ResolveClientUrl("~/EditorPages/AboutFormEditor.aspx") %>">О компании</a></li>
           <li class="showing-sub-menu">
-            <a href="<%= ResolveClientUrl("~/EditorPages/Articles/ArticleManagementPage.aspx") %>">Статьи</a>
+            <a href="<%= ResolveClientUrl("~/EditorPages/Offers/OfferManagementPage.aspx") %>">Статьи</a>
             <ul class="main-menu__third-level showing-sub-menu">
-              <li><a href=<%= ResolveClientUrl("~/EditorPages/Articles/ArticleDetailsPage.aspx") %>>Добавить</a></li>
-            </ul>
-          </li>
-          <li class="showing-sub-menu cf">
-            <a href="<%= ResolveClientUrl("~/EditorPages/Teasers/TeaserManagementPage.aspx") %>">Тизеры</a>
-            <ul class="main-menu__third-level showing-sub-menu">
-              <li><a href="<%= ResolveClientUrl("~/EditorPages/Teasers/TeaserDetailsPage.aspx") %>">Добавить</a></li>
+              <li><a href="<%= ResolveClientUrl("~/EditorPages/Offers/OfferDetailsPage.aspx") %>">Добавить</a></li>
             </ul>
           </li>
         </ul>

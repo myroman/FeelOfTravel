@@ -22,7 +22,7 @@ namespace FeelOfTravel.SqlDataAccess
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="FeelOfTravelDb")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="FeelOfTravel")]
 	public partial class DbDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -33,25 +33,25 @@ namespace FeelOfTravel.SqlDataAccess
     partial void InserttbAboutPage(tbAboutPage instance);
     partial void UpdatetbAboutPage(tbAboutPage instance);
     partial void DeletetbAboutPage(tbAboutPage instance);
-    partial void InserttbTeaser(tbTeaser instance);
-    partial void UpdatetbTeaser(tbTeaser instance);
-    partial void DeletetbTeaser(tbTeaser instance);
-    partial void InserttbArticle(tbArticle instance);
-    partial void UpdatetbArticle(tbArticle instance);
-    partial void DeletetbArticle(tbArticle instance);
-    partial void InserttbArticleType(tbArticleType instance);
-    partial void UpdatetbArticleType(tbArticleType instance);
-    partial void DeletetbArticleType(tbArticleType instance);
+    partial void InserttbOfferType(tbOfferType instance);
+    partial void UpdatetbOfferType(tbOfferType instance);
+    partial void DeletetbOfferType(tbOfferType instance);
     partial void InserttbContactsPage(tbContactsPage instance);
     partial void UpdatetbContactsPage(tbContactsPage instance);
     partial void DeletetbContactsPage(tbContactsPage instance);
-    partial void InserttbMainPage(tbMainPage instance);
-    partial void UpdatetbMainPage(tbMainPage instance);
-    partial void DeletetbMainPage(tbMainPage instance);
+    partial void InserttbInformationCategory(tbInformationCategory instance);
+    partial void UpdatetbInformationCategory(tbInformationCategory instance);
+    partial void DeletetbInformationCategory(tbInformationCategory instance);
+    partial void InserttbOffer(tbOffer instance);
+    partial void UpdatetbOffer(tbOffer instance);
+    partial void DeletetbOffer(tbOffer instance);
+    partial void InserttbCoreArticleData(tbCoreArticleData instance);
+    partial void UpdatetbCoreArticleData(tbCoreArticleData instance);
+    partial void DeletetbCoreArticleData(tbCoreArticleData instance);
     #endregion
 		
 		public DbDataContext() : 
-				base(global::FeelOfTravel.SqlDataAccess.Properties.Settings.Default.FeelOfTravelDbConnectionString, mappingSource)
+				base(global::FeelOfTravel.SqlDataAccess.Properties.Settings.Default.FeelOfTravelConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -88,27 +88,11 @@ namespace FeelOfTravel.SqlDataAccess
 			}
 		}
 		
-		public System.Data.Linq.Table<tbTeaser> tbTeasers
+		public System.Data.Linq.Table<tbOfferType> tbOfferTypes
 		{
 			get
 			{
-				return this.GetTable<tbTeaser>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbArticle> tbArticles
-		{
-			get
-			{
-				return this.GetTable<tbArticle>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbArticleType> tbArticleTypes
-		{
-			get
-			{
-				return this.GetTable<tbArticleType>();
+				return this.GetTable<tbOfferType>();
 			}
 		}
 		
@@ -120,11 +104,27 @@ namespace FeelOfTravel.SqlDataAccess
 			}
 		}
 		
-		public System.Data.Linq.Table<tbMainPage> tbMainPages
+		public System.Data.Linq.Table<tbInformationCategory> tbInformationCategories
 		{
 			get
 			{
-				return this.GetTable<tbMainPage>();
+				return this.GetTable<tbInformationCategory>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbOffer> tbOffers
+		{
+			get
+			{
+				return this.GetTable<tbOffer>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbCoreArticleData> tbCoreArticleDatas
+		{
+			get
+			{
+				return this.GetTable<tbCoreArticleData>();
 			}
 		}
 	}
@@ -215,372 +215,84 @@ namespace FeelOfTravel.SqlDataAccess
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbTeasers")]
-	public partial class tbTeaser : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbOfferTypes")]
+	public partial class tbOfferType : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _teaserId;
+		private int _id;
 		
-		private string _preamble;
+		private string _name;
 		
-		private string _imageLink;
-		
-		private int _relatedArticleId;
-		
-		private EntityRef<tbArticle> _tbArticle;
+		private EntitySet<tbOffer> _tbOffers;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnteaserIdChanging(int value);
-    partial void OnteaserIdChanged();
-    partial void OnpreambleChanging(string value);
-    partial void OnpreambleChanged();
-    partial void OnimageLinkChanging(string value);
-    partial void OnimageLinkChanged();
-    partial void OnrelatedArticleIdChanging(int value);
-    partial void OnrelatedArticleIdChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
     #endregion
 		
-		public tbTeaser()
+		public tbOfferType()
 		{
-			this._tbArticle = default(EntityRef<tbArticle>);
+			this._tbOffers = new EntitySet<tbOffer>(new Action<tbOffer>(this.attach_tbOffers), new Action<tbOffer>(this.detach_tbOffers));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_teaserId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int teaserId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int id
 		{
 			get
 			{
-				return this._teaserId;
+				return this._id;
 			}
 			set
 			{
-				if ((this._teaserId != value))
+				if ((this._id != value))
 				{
-					this.OnteaserIdChanging(value);
+					this.OnidChanging(value);
 					this.SendPropertyChanging();
-					this._teaserId = value;
-					this.SendPropertyChanged("teaserId");
-					this.OnteaserIdChanged();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_preamble", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string preamble
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string name
 		{
 			get
 			{
-				return this._preamble;
+				return this._name;
 			}
 			set
 			{
-				if ((this._preamble != value))
+				if ((this._name != value))
 				{
-					this.OnpreambleChanging(value);
+					this.OnnameChanging(value);
 					this.SendPropertyChanging();
-					this._preamble = value;
-					this.SendPropertyChanged("preamble");
-					this.OnpreambleChanged();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imageLink", DbType="VarChar(100)")]
-		public string imageLink
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbOfferType_tbOffer", Storage="_tbOffers", ThisKey="id", OtherKey="typeId")]
+		public EntitySet<tbOffer> tbOffers
 		{
 			get
 			{
-				return this._imageLink;
+				return this._tbOffers;
 			}
 			set
 			{
-				if ((this._imageLink != value))
-				{
-					this.OnimageLinkChanging(value);
-					this.SendPropertyChanging();
-					this._imageLink = value;
-					this.SendPropertyChanged("imageLink");
-					this.OnimageLinkChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_relatedArticleId", DbType="Int NOT NULL")]
-		public int relatedArticleId
-		{
-			get
-			{
-				return this._relatedArticleId;
-			}
-			set
-			{
-				if ((this._relatedArticleId != value))
-				{
-					if (this._tbArticle.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnrelatedArticleIdChanging(value);
-					this.SendPropertyChanging();
-					this._relatedArticleId = value;
-					this.SendPropertyChanged("relatedArticleId");
-					this.OnrelatedArticleIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbArticle_tbTeaser", Storage="_tbArticle", ThisKey="relatedArticleId", OtherKey="articleId", IsForeignKey=true)]
-		public tbArticle tbArticle
-		{
-			get
-			{
-				return this._tbArticle.Entity;
-			}
-			set
-			{
-				tbArticle previousValue = this._tbArticle.Entity;
-				if (((previousValue != value) 
-							|| (this._tbArticle.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbArticle.Entity = null;
-						previousValue.tbTeasers.Remove(this);
-					}
-					this._tbArticle.Entity = value;
-					if ((value != null))
-					{
-						value.tbTeasers.Add(this);
-						this._relatedArticleId = value.articleId;
-					}
-					else
-					{
-						this._relatedArticleId = default(int);
-					}
-					this.SendPropertyChanged("tbArticle");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbArticles")]
-	public partial class tbArticle : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _articleId;
-		
-		private int _articleTypeId;
-		
-		private string _header;
-		
-		private string _text;
-		
-		private System.Nullable<double> _price;
-		
-		private EntitySet<tbTeaser> _tbTeasers;
-		
-		private EntityRef<tbArticleType> _tbArticleType;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnarticleIdChanging(int value);
-    partial void OnarticleIdChanged();
-    partial void OnarticleTypeIdChanging(int value);
-    partial void OnarticleTypeIdChanged();
-    partial void OnheaderChanging(string value);
-    partial void OnheaderChanged();
-    partial void OntextChanging(string value);
-    partial void OntextChanged();
-    partial void OnpriceChanging(System.Nullable<double> value);
-    partial void OnpriceChanged();
-    #endregion
-		
-		public tbArticle()
-		{
-			this._tbTeasers = new EntitySet<tbTeaser>(new Action<tbTeaser>(this.attach_tbTeasers), new Action<tbTeaser>(this.detach_tbTeasers));
-			this._tbArticleType = default(EntityRef<tbArticleType>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_articleId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int articleId
-		{
-			get
-			{
-				return this._articleId;
-			}
-			set
-			{
-				if ((this._articleId != value))
-				{
-					this.OnarticleIdChanging(value);
-					this.SendPropertyChanging();
-					this._articleId = value;
-					this.SendPropertyChanged("articleId");
-					this.OnarticleIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_articleTypeId", DbType="Int NOT NULL")]
-		public int articleTypeId
-		{
-			get
-			{
-				return this._articleTypeId;
-			}
-			set
-			{
-				if ((this._articleTypeId != value))
-				{
-					if (this._tbArticleType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnarticleTypeIdChanging(value);
-					this.SendPropertyChanging();
-					this._articleTypeId = value;
-					this.SendPropertyChanged("articleTypeId");
-					this.OnarticleTypeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_header", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string header
-		{
-			get
-			{
-				return this._header;
-			}
-			set
-			{
-				if ((this._header != value))
-				{
-					this.OnheaderChanging(value);
-					this.SendPropertyChanging();
-					this._header = value;
-					this.SendPropertyChanged("header");
-					this.OnheaderChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_text", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string text
-		{
-			get
-			{
-				return this._text;
-			}
-			set
-			{
-				if ((this._text != value))
-				{
-					this.OntextChanging(value);
-					this.SendPropertyChanging();
-					this._text = value;
-					this.SendPropertyChanged("text");
-					this.OntextChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float")]
-		public System.Nullable<double> price
-		{
-			get
-			{
-				return this._price;
-			}
-			set
-			{
-				if ((this._price != value))
-				{
-					this.OnpriceChanging(value);
-					this.SendPropertyChanging();
-					this._price = value;
-					this.SendPropertyChanged("price");
-					this.OnpriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbArticle_tbTeaser", Storage="_tbTeasers", ThisKey="articleId", OtherKey="relatedArticleId")]
-		public EntitySet<tbTeaser> tbTeasers
-		{
-			get
-			{
-				return this._tbTeasers;
-			}
-			set
-			{
-				this._tbTeasers.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbArticleType_tbArticle", Storage="_tbArticleType", ThisKey="articleTypeId", OtherKey="articleTypeId", IsForeignKey=true)]
-		public tbArticleType tbArticleType
-		{
-			get
-			{
-				return this._tbArticleType.Entity;
-			}
-			set
-			{
-				tbArticleType previousValue = this._tbArticleType.Entity;
-				if (((previousValue != value) 
-							|| (this._tbArticleType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbArticleType.Entity = null;
-						previousValue.tbArticles.Remove(this);
-					}
-					this._tbArticleType.Entity = value;
-					if ((value != null))
-					{
-						value.tbArticles.Add(this);
-						this._articleTypeId = value.articleTypeId;
-					}
-					else
-					{
-						this._articleTypeId = default(int);
-					}
-					this.SendPropertyChanged("tbArticleType");
-				}
+				this._tbOffers.Assign(value);
 			}
 		}
 		
@@ -604,130 +316,16 @@ namespace FeelOfTravel.SqlDataAccess
 			}
 		}
 		
-		private void attach_tbTeasers(tbTeaser entity)
+		private void attach_tbOffers(tbOffer entity)
 		{
 			this.SendPropertyChanging();
-			entity.tbArticle = this;
+			entity.tbOfferType = this;
 		}
 		
-		private void detach_tbTeasers(tbTeaser entity)
+		private void detach_tbOffers(tbOffer entity)
 		{
 			this.SendPropertyChanging();
-			entity.tbArticle = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbArticleTypes")]
-	public partial class tbArticleType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _articleTypeId;
-		
-		private string _articleType;
-		
-		private EntitySet<tbArticle> _tbArticles;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnarticleTypeIdChanging(int value);
-    partial void OnarticleTypeIdChanged();
-    partial void OnarticleTypeChanging(string value);
-    partial void OnarticleTypeChanged();
-    #endregion
-		
-		public tbArticleType()
-		{
-			this._tbArticles = new EntitySet<tbArticle>(new Action<tbArticle>(this.attach_tbArticles), new Action<tbArticle>(this.detach_tbArticles));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_articleTypeId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int articleTypeId
-		{
-			get
-			{
-				return this._articleTypeId;
-			}
-			set
-			{
-				if ((this._articleTypeId != value))
-				{
-					this.OnarticleTypeIdChanging(value);
-					this.SendPropertyChanging();
-					this._articleTypeId = value;
-					this.SendPropertyChanged("articleTypeId");
-					this.OnarticleTypeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_articleType", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string articleType
-		{
-			get
-			{
-				return this._articleType;
-			}
-			set
-			{
-				if ((this._articleType != value))
-				{
-					this.OnarticleTypeChanging(value);
-					this.SendPropertyChanging();
-					this._articleType = value;
-					this.SendPropertyChanged("articleType");
-					this.OnarticleTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbArticleType_tbArticle", Storage="_tbArticles", ThisKey="articleTypeId", OtherKey="articleTypeId")]
-		public EntitySet<tbArticle> tbArticles
-		{
-			get
-			{
-				return this._tbArticles;
-			}
-			set
-			{
-				this._tbArticles.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_tbArticles(tbArticle entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbArticleType = this;
-		}
-		
-		private void detach_tbArticles(tbArticle entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbArticleType = null;
+			entity.tbOfferType = null;
 		}
 	}
 	
@@ -817,47 +415,443 @@ namespace FeelOfTravel.SqlDataAccess
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbMainPage")]
-	public partial class tbMainPage : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbInformationCategories")]
+	public partial class tbInformationCategory : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _entryId;
+		private int _id;
 		
-		private string _text;
+		private string _name;
+		
+		private EntitySet<tbCoreArticleData> _tbCoreArticleDatas;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnentryIdChanging(int value);
-    partial void OnentryIdChanged();
-    partial void OntextChanging(string value);
-    partial void OntextChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
     #endregion
 		
-		public tbMainPage()
+		public tbInformationCategory()
 		{
+			this._tbCoreArticleDatas = new EntitySet<tbCoreArticleData>(new Action<tbCoreArticleData>(this.attach_tbCoreArticleDatas), new Action<tbCoreArticleData>(this.detach_tbCoreArticleDatas));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entryId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int entryId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int id
 		{
 			get
 			{
-				return this._entryId;
+				return this._id;
 			}
 			set
 			{
-				if ((this._entryId != value))
+				if ((this._id != value))
 				{
-					this.OnentryIdChanging(value);
+					this.OnidChanging(value);
 					this.SendPropertyChanging();
-					this._entryId = value;
-					this.SendPropertyChanged("entryId");
-					this.OnentryIdChanged();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbInformationCategory_tbCoreArticleData", Storage="_tbCoreArticleDatas", ThisKey="id", OtherKey="categoryId")]
+		public EntitySet<tbCoreArticleData> tbCoreArticleDatas
+		{
+			get
+			{
+				return this._tbCoreArticleDatas;
+			}
+			set
+			{
+				this._tbCoreArticleDatas.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tbCoreArticleDatas(tbCoreArticleData entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbInformationCategory = this;
+		}
+		
+		private void detach_tbCoreArticleDatas(tbCoreArticleData entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbInformationCategory = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbOffers")]
+	public partial class tbOffer : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _coreArticleDataId;
+		
+		private System.Nullable<double> _price;
+		
+		private int _typeId;
+		
+		private EntityRef<tbOfferType> _tbOfferType;
+		
+		private EntityRef<tbCoreArticleData> _tbCoreArticleData;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OncoreArticleDataIdChanging(int value);
+    partial void OncoreArticleDataIdChanged();
+    partial void OnpriceChanging(System.Nullable<double> value);
+    partial void OnpriceChanged();
+    partial void OntypeIdChanging(int value);
+    partial void OntypeIdChanged();
+    #endregion
+		
+		public tbOffer()
+		{
+			this._tbOfferType = default(EntityRef<tbOfferType>);
+			this._tbCoreArticleData = default(EntityRef<tbCoreArticleData>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_coreArticleDataId", DbType="Int NOT NULL")]
+		public int coreArticleDataId
+		{
+			get
+			{
+				return this._coreArticleDataId;
+			}
+			set
+			{
+				if ((this._coreArticleDataId != value))
+				{
+					if (this._tbCoreArticleData.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OncoreArticleDataIdChanging(value);
+					this.SendPropertyChanging();
+					this._coreArticleDataId = value;
+					this.SendPropertyChanged("coreArticleDataId");
+					this.OncoreArticleDataIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float")]
+		public System.Nullable<double> price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this.OnpriceChanging(value);
+					this.SendPropertyChanging();
+					this._price = value;
+					this.SendPropertyChanged("price");
+					this.OnpriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_typeId", DbType="Int NOT NULL")]
+		public int typeId
+		{
+			get
+			{
+				return this._typeId;
+			}
+			set
+			{
+				if ((this._typeId != value))
+				{
+					if (this._tbOfferType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OntypeIdChanging(value);
+					this.SendPropertyChanging();
+					this._typeId = value;
+					this.SendPropertyChanged("typeId");
+					this.OntypeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbOfferType_tbOffer", Storage="_tbOfferType", ThisKey="typeId", OtherKey="id", IsForeignKey=true)]
+		public tbOfferType tbOfferType
+		{
+			get
+			{
+				return this._tbOfferType.Entity;
+			}
+			set
+			{
+				tbOfferType previousValue = this._tbOfferType.Entity;
+				if (((previousValue != value) 
+							|| (this._tbOfferType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbOfferType.Entity = null;
+						previousValue.tbOffers.Remove(this);
+					}
+					this._tbOfferType.Entity = value;
+					if ((value != null))
+					{
+						value.tbOffers.Add(this);
+						this._typeId = value.id;
+					}
+					else
+					{
+						this._typeId = default(int);
+					}
+					this.SendPropertyChanged("tbOfferType");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbCoreArticleData_tbOffer", Storage="_tbCoreArticleData", ThisKey="coreArticleDataId", OtherKey="id", IsForeignKey=true)]
+		public tbCoreArticleData tbCoreArticleData
+		{
+			get
+			{
+				return this._tbCoreArticleData.Entity;
+			}
+			set
+			{
+				tbCoreArticleData previousValue = this._tbCoreArticleData.Entity;
+				if (((previousValue != value) 
+							|| (this._tbCoreArticleData.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbCoreArticleData.Entity = null;
+						previousValue.tbOffers.Remove(this);
+					}
+					this._tbCoreArticleData.Entity = value;
+					if ((value != null))
+					{
+						value.tbOffers.Add(this);
+						this._coreArticleDataId = value.id;
+					}
+					else
+					{
+						this._coreArticleDataId = default(int);
+					}
+					this.SendPropertyChanged("tbCoreArticleData");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbCoreArticleData")]
+	public partial class tbCoreArticleData : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _categoryId;
+		
+		private string _header;
+		
+		private string _text;
+		
+		private string _imageUrl;
+		
+		private System.DateTime _publishDate;
+		
+		private EntitySet<tbOffer> _tbOffers;
+		
+		private EntityRef<tbInformationCategory> _tbInformationCategory;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OncategoryIdChanging(int value);
+    partial void OncategoryIdChanged();
+    partial void OnheaderChanging(string value);
+    partial void OnheaderChanged();
+    partial void OntextChanging(string value);
+    partial void OntextChanged();
+    partial void OnimageUrlChanging(string value);
+    partial void OnimageUrlChanged();
+    partial void OnpublishDateChanging(System.DateTime value);
+    partial void OnpublishDateChanged();
+    #endregion
+		
+		public tbCoreArticleData()
+		{
+			this._tbOffers = new EntitySet<tbOffer>(new Action<tbOffer>(this.attach_tbOffers), new Action<tbOffer>(this.detach_tbOffers));
+			this._tbInformationCategory = default(EntityRef<tbInformationCategory>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_categoryId", DbType="Int NOT NULL")]
+		public int categoryId
+		{
+			get
+			{
+				return this._categoryId;
+			}
+			set
+			{
+				if ((this._categoryId != value))
+				{
+					if (this._tbInformationCategory.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OncategoryIdChanging(value);
+					this.SendPropertyChanging();
+					this._categoryId = value;
+					this.SendPropertyChanged("categoryId");
+					this.OncategoryIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_header", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string header
+		{
+			get
+			{
+				return this._header;
+			}
+			set
+			{
+				if ((this._header != value))
+				{
+					this.OnheaderChanging(value);
+					this.SendPropertyChanging();
+					this._header = value;
+					this.SendPropertyChanged("header");
+					this.OnheaderChanged();
 				}
 			}
 		}
@@ -882,6 +876,93 @@ namespace FeelOfTravel.SqlDataAccess
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imageUrl", DbType="VarChar(300)")]
+		public string imageUrl
+		{
+			get
+			{
+				return this._imageUrl;
+			}
+			set
+			{
+				if ((this._imageUrl != value))
+				{
+					this.OnimageUrlChanging(value);
+					this.SendPropertyChanging();
+					this._imageUrl = value;
+					this.SendPropertyChanged("imageUrl");
+					this.OnimageUrlChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_publishDate", DbType="Date NOT NULL")]
+		public System.DateTime publishDate
+		{
+			get
+			{
+				return this._publishDate;
+			}
+			set
+			{
+				if ((this._publishDate != value))
+				{
+					this.OnpublishDateChanging(value);
+					this.SendPropertyChanging();
+					this._publishDate = value;
+					this.SendPropertyChanged("publishDate");
+					this.OnpublishDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbCoreArticleData_tbOffer", Storage="_tbOffers", ThisKey="id", OtherKey="coreArticleDataId")]
+		public EntitySet<tbOffer> tbOffers
+		{
+			get
+			{
+				return this._tbOffers;
+			}
+			set
+			{
+				this._tbOffers.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbInformationCategory_tbCoreArticleData", Storage="_tbInformationCategory", ThisKey="categoryId", OtherKey="id", IsForeignKey=true)]
+		public tbInformationCategory tbInformationCategory
+		{
+			get
+			{
+				return this._tbInformationCategory.Entity;
+			}
+			set
+			{
+				tbInformationCategory previousValue = this._tbInformationCategory.Entity;
+				if (((previousValue != value) 
+							|| (this._tbInformationCategory.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbInformationCategory.Entity = null;
+						previousValue.tbCoreArticleDatas.Remove(this);
+					}
+					this._tbInformationCategory.Entity = value;
+					if ((value != null))
+					{
+						value.tbCoreArticleDatas.Add(this);
+						this._categoryId = value.id;
+					}
+					else
+					{
+						this._categoryId = default(int);
+					}
+					this.SendPropertyChanged("tbInformationCategory");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -900,6 +981,18 @@ namespace FeelOfTravel.SqlDataAccess
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_tbOffers(tbOffer entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbCoreArticleData = this;
+		}
+		
+		private void detach_tbOffers(tbOffer entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbCoreArticleData = null;
 		}
 	}
 }

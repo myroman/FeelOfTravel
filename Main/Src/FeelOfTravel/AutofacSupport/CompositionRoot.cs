@@ -6,6 +6,7 @@ using Autofac;
 using FeelOfTravel.Business.Domain;
 using FeelOfTravel.Business.Repositories;
 using FeelOfTravel.Business.Services;
+using FeelOfTravel.Business.Services.CategoryPresenter;
 
 namespace FeelOfTravel.AutofacSupport
 {
@@ -15,13 +16,15 @@ namespace FeelOfTravel.AutofacSupport
 
         private Dictionary<SimplePageType, ISimplePageRepository> simplePageMapping;
 
-        public IArticleRepository ArticleRepository { get; set; }
+        public IOfferRepository OfferRepository { get; set; }
 
-        public ITeaserRepository TeaserRepository { get; set; }
+        public IOfferTypeRepository OfferTypeRepository { get; set; }
 
-        public IArticleService ArticleService { get; set; }
+        public IOfferService OfferService { get; set; }
 
-        public ITeaserService TeaserService { get; set; }
+        public ICategoryRepository CategoryRepository { get; set; }
+
+        public ICategoryPresenter CategoryPresenter { get; set; }
 
         public CompositionRoot(IContainer container)
         {
@@ -31,10 +34,11 @@ namespace FeelOfTravel.AutofacSupport
             }
             this.container = container;
 
-            ArticleRepository = container.Resolve<IArticleRepository>();
-            TeaserRepository = container.Resolve<ITeaserRepository>();
-            ArticleService = container.Resolve<IArticleService>();
-            TeaserService = container.Resolve<ITeaserService>();
+            OfferRepository = container.Resolve<IOfferRepository>();
+            OfferTypeRepository = container.Resolve<IOfferTypeRepository>();
+            OfferService = container.Resolve<IOfferService>();
+            CategoryRepository = container.Resolve<ICategoryRepository>();
+            CategoryPresenter = container.Resolve<ICategoryPresenter>();
 
             simplePageMapping = new Dictionary<SimplePageType, ISimplePageRepository>();
         }

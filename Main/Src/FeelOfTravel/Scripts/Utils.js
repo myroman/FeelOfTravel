@@ -49,15 +49,15 @@ function getRoot() {
   return location.protocol + '//' + location.host + '/';
 }
 
-function linkImageFile(imageId, fileName) {  
-  var imageTag = document.getElementById(imageId);
-  imageTag.src = getUploadedImagesDir() + 'Teasers/' + fileName;
-}
-
 function confirmDelete(message) {
   if (confirm(message) == true)
     return true;
   else return false;
+}
+
+function linkImageFile(imageId, fileName) {
+  var image = document.getElementById(imageId);
+  image.src = getUploadedImagesDir() + 'Offers/' + fileName;
 }
 
 // Effects

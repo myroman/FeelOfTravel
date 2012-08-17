@@ -19,14 +19,29 @@ IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' A
 drop table tbArticleTypes
 end
 
+-- new tables
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'tbOffers')) BEGIN
+drop table tbOffers
+end
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'tbOfferTypes')) BEGIN
+drop table tbOfferTypes
+end
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'tbCoreArticleData')) BEGIN
+drop table tbCoreArticleData
+end
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'tbInformationCategories')) BEGIN
+drop table tbInformationCategories
+end
+
+
 -- create tables
-create table tbMainPage
+/*create table tbMainPage
 (
 entryId int identity(1,1),
 [text] varchar(max) not null,
 
 constraint PK_mainPageId primary key(entryId)
-)
+)*/
 
 go
 create table tbAboutPage
@@ -47,48 +62,64 @@ constraint PK_contactsPageId primary key(entryId)
 )
 
 go
-create table tbArticleTypes
+create table tbInformationCategories
 (
-articleTypeId int,
-articleType varchar(50) not null,
+id int not null,
+name varchar(max) not null,
 
-constraint PK_articleTypeId primary key(articleTypeId)
+constraint PK_InformationCategoryId primary key(id)
 )
 
 go
-create table tbArticles
+create table tbCoreArticleData
 (
-articleId int identity(1, 1),
-articleTypeId int not null,
-header varchar(100) not null,
+id int identity(1,1),
+categoryId int not null,
+header varchar(200) not null,
 [text] varchar(max) not null,
-price float,
+imageUrl varchar(300),
+publishDate date not null,
 
-constraint PK_articleId primary key(articleId),
-constraint FK_articleTypeId foreign key(articleTypeId)
-references tbArticleTypes (articleTypeId)
+constraint PK_CoreArticleDataId primary key(id),
+constraint FK_categoryId foreign key(categoryId)
+references tbInformationCategories (id)
 )
-go
 
-create table tbTeasers
+go
+create table tbOfferTypes
 (
-teaserId int identity(1, 1),
-preamble varchar(50) not null,
-imageLink varchar(100),
-relatedArticleId int not null,
+id int not null,
+[name] varchar(max) not null,
 
-constraint PK_teaserId primary key(teaserId),
-constraint FK_relatedArticleId foreign key(relatedArticleId)
-references tbArticles(articleId)
+constraint PK_OfferTypeId primary key(id)
 )
+
 go
+create table tbOffers
+(
+id int identity(1,1),
+coreArticleDataId int not null,
+price float,
+typeId int not null,
 
---fill db
-delete from dbo.tbArticleTypes
+constraint PK_OfferId primary key(id),
+constraint FK_CoreArticleDataId foreign key(coreArticleDataId)
+references tbCoreArticleData(id),
+constraint FK_OfferTypeId foreign key(typeId)
+references tbOfferTypes(id)
+)
 
-insert into dbo.tbArticleTypes (articleTypeId, articleType) 
-values(1, 'Акции')
-insert into dbo.tbArticleTypes (articleTypeId, articleType) 
+-- Fill db
+insert into dbo.tbInformationCategories (id, name)
+values(1,'Акции')
+insert into dbo.tbInformationCategories (id, name)
+values(2,'Новости')
+insert into dbo.tbInformationCategories (id, name)
+values(3,'Страны')
+
+insert into dbo.tbOfferTypes (id, name)
+values(1, 'Спецпредложения')
+insert into dbo.tbOfferTypes (id, name)
 values(2, 'Круизы')
-insert into dbo.tbArticleTypes (articleTypeId, articleType) 
+insert into dbo.tbOfferTypes (id, name)
 values(3, 'Автобусные туры')

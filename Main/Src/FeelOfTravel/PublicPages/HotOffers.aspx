@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="HotOffers.aspx.cs" Inherits="FeelOfTravel.PublicPages.HotOffers" %>
 <%@ Import Namespace="FeelOfTravel.Logic.Common" %>
-<%@Register tagPrefix="ControlsLibrary" tagName="TeaserViewControl" src="~/Controls/TeaserViewControl.ascx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
   <title>
       <%=Utils.MakePublicHeader("Акции и спецпредложения")%>
@@ -11,6 +11,6 @@
     Действующие акции!
   </h2>
   <br/>
-  <ControlsLibrary:TeaserViewControl ID="tsvHotOffers" runat="server" />
+  <%--<ControlsLibrary:TeaserViewControl ID="tsvHotOffers" runat="server" />--%>
 </asp:Content>
 <asp:Content runat="server" ID="RightColumn" ContentPlaceHolderID="RightContent"> </asp:Content>

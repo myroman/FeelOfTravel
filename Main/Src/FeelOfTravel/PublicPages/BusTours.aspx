@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="BusTours.aspx.cs" Inherits="FeelOfTravel.PublicPages.BusTours" %>
 <%@ Import Namespace="FeelOfTravel.Logic.Common" %>
-<%@Register tagPrefix="ControlsLibrary" tagName="TeaserViewControl" src="~/Controls/TeaserViewControl.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <title>
@@ -12,6 +11,6 @@
     Автобусные туры
   </h2>
 
-  <ControlsLibrary:TeaserViewControl ID="tsvBusTours" runat="server" />
+  <%--<ControlsLibrary:TeaserViewControl ID="tsvBusTours" runat="server" />--%>
 </asp:Content>
 <asp:Content runat="server" ID="RightContent" ContentPlaceHolderID="RightContent"></asp:Content>

@@ -10,15 +10,13 @@ namespace FeelOfTravel.PublicPages
 {
     public partial class HotOffers : System.Web.UI.Page
     {
-        private ITeaserService teaserService;
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            teaserService = CompositionRootHelper.GetCompositionRoot(Context).TeaserService;
-            if (!IsPostBack)
-            {
-                tsvHotOffers.DataSource = teaserService.GetTeasers(ArticleTypes.HotOffer);
-            }
+            //teaserService = CompositionRootHelper.GetCompositionRoot(Context).TeaserService;
+            //if (!IsPostBack)
+            //{
+            //    tsvHotOffers.DataSource = teaserService.GetTeasers(OfferTypes.HotOffer);
+            //}
         }
     }
 }

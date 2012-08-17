@@ -65,6 +65,7 @@
       <HintPath>..\..\.Libraries\Autofac\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -76,17 +77,15 @@
     <Content Include="App_Data\security.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Controls\CommonArticleInformationControl.ascx" />
     <Content Include="Controls\EditorEntitiesManagementControl.ascx" />
     <Content Include="Controls\HorizontalMenuControl.ascx" />
     <Content Include="Controls\SletatMiniVerticalFilterControl.ascx" />
     <Content Include="Controls\SletatSearchResultsControl.ascx" />
-    <Content Include="Controls\TeaserViewControl.ascx" />
     <Content Include="Controls\EntitiesListControl.ascx" />
     <Content Include="Controls\TinyMceEditorControl.ascx" />
-    <Content Include="EditorPages\Articles\ArticleDetailsPage.aspx" />
-    <Content Include="EditorPages\Teasers\TeaserDetailsPage.aspx" />
-    <Content Include="EditorPages\Articles\ArticleManagementPage.aspx" />
-    <Content Include="EditorPages\Teasers\TeaserManagementPage.aspx" />
+    <Content Include="EditorPages\Offers\OfferDetailsPage.aspx" />
+    <Content Include="EditorPages\Offers\OfferManagementPage.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
@@ -117,10 +116,11 @@
     <Content Include="jquery-tooltip\lib\jquery.dimensions.js" />
     <Content Include="jquery-tooltip\lib\jquery.js" />
     <Content Include="PublicPages\About.aspx" />
-    <Content Include="PublicPages\ArticlePage.aspx" />
+    <Content Include="PublicPages\OfferPage.aspx" />
     <Content Include="PublicPages\BusTours.aspx" />
     <Content Include="PublicPages\Cruises.aspx" />
     <Content Include="PublicPages\HotOffers.aspx" />
+    <Content Include="PublicPages\OffersList.aspx" />
     <Content Include="PublicPages\TestPage2.aspx" />
     <Content Include="PublicPages\TourSearch.aspx" />
     <Content Include="Scripts\EditorControl.js" />
@@ -412,6 +412,13 @@
   <ItemGroup>
     <Compile Include="AutofacSupport\CompositionRoot.cs" />
     <Compile Include="AutofacSupport\CompositionRootBuilder.cs" />
+    <Compile Include="Controls\CommonArticleInformationControl.ascx.cs">
+      <DependentUpon>CommonArticleInformationControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CommonArticleInformationControl.ascx.designer.cs">
+      <DependentUpon>CommonArticleInformationControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\EditorEntitiesManagementControl.ascx.cs">
       <DependentUpon>EditorEntitiesManagementControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -440,13 +447,6 @@
     <Compile Include="Controls\TinyMceEditorControl.ascx.designer.cs">
       <DependentUpon>TinyMceEditorControl.ascx</DependentUpon>
     </Compile>
-    <Compile Include="EditorPages\Teasers\TeaserManagementPage.aspx.cs">
-      <DependentUpon>TeaserManagementPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditorPages\Teasers\TeaserManagementPage.aspx.designer.cs">
-      <DependentUpon>TeaserManagementPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ErrorPages\GenericErrorPage.aspx.cs">
       <DependentUpon>GenericErrorPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -456,7 +456,7 @@
     </Compile>
     <Compile Include="Handlers\RefreshHandler.cs" />
     <Compile Include="Handlers\TinyMceEditorHandler.cs" />
-    <Compile Include="Logic\ArticlesProvider.cs" />
+    <Compile Include="Logic\OffersProvider.cs" />
     <Compile Include="Logic\Common\JsonHelper.cs" />
     <Compile Include="Logic\Common\NumberFormatter.cs" />
     <Compile Include="Logic\Common\WebPathExtensions.cs" />
@@ -464,40 +464,25 @@
     <Compile Include="Logic\EntitiesTransferObject.cs" />
     <Compile Include="Logic\IEditorEntitiesManager.cs" />
     <Compile Include="Logic\IEditorEntitiesProvider.cs" />
-    <Compile Include="Controls\TeaserViewControl.ascx.cs">
-      <DependentUpon>TeaserViewControl.ascx</DependentUpon>
+    <Compile Include="EditorPages\Offers\OfferDetailsPage.aspx.cs">
+      <DependentUpon>OfferDetailsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controls\TeaserViewControl.ascx.designer.cs">
-      <DependentUpon>TeaserViewControl.ascx</DependentUpon>
+    <Compile Include="EditorPages\Offers\OfferDetailsPage.aspx.designer.cs">
+      <DependentUpon>OfferDetailsPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EditorPages\Articles\ArticleDetailsPage.aspx.cs">
-      <DependentUpon>ArticleDetailsPage.aspx</DependentUpon>
+    <Compile Include="EditorPages\Offers\OfferManagementPage.aspx.cs">
+      <DependentUpon>OfferManagementPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EditorPages\Articles\ArticleDetailsPage.aspx.designer.cs">
-      <DependentUpon>ArticleDetailsPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditorPages\Teasers\TeaserDetailsPage.aspx.cs">
-      <DependentUpon>TeaserDetailsPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditorPages\Teasers\TeaserDetailsPage.aspx.designer.cs">
-      <DependentUpon>TeaserDetailsPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditorPages\Articles\ArticleManagementPage.aspx.cs">
-      <DependentUpon>ArticleManagementPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditorPages\Articles\ArticleManagementPage.aspx.designer.cs">
-      <DependentUpon>ArticleManagementPage.aspx</DependentUpon>
+    <Compile Include="EditorPages\Offers\OfferManagementPage.aspx.designer.cs">
+      <DependentUpon>OfferManagementPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logic\Common\PageHelper.cs" />
     <Compile Include="Logic\PageException.cs" />
     <Compile Include="Logic\Providers\XmlMembershipProvider.cs" />
     <Compile Include="Logic\Providers\XmlRoleProvider.cs" />
     <Compile Include="Logic\Providers\SecurityXmlHelper.cs" />
-    <Compile Include="Logic\TeasersProvider.cs" />
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -512,12 +497,12 @@
     <Compile Include="PublicPages\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PublicPages\ArticlePage.aspx.cs">
-      <DependentUpon>ArticlePage.aspx</DependentUpon>
+    <Compile Include="PublicPages\OfferPage.aspx.cs">
+      <DependentUpon>OfferPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PublicPages\ArticlePage.aspx.designer.cs">
-      <DependentUpon>ArticlePage.aspx</DependentUpon>
+    <Compile Include="PublicPages\OfferPage.aspx.designer.cs">
+      <DependentUpon>OfferPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="PublicPages\BusTours.aspx.cs">
       <DependentUpon>BusTours.aspx</DependentUpon>
@@ -539,6 +524,13 @@
     </Compile>
     <Compile Include="PublicPages\HotOffers.aspx.designer.cs">
       <DependentUpon>HotOffers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PublicPages\OffersList.aspx.cs">
+      <DependentUpon>OffersList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\OffersList.aspx.designer.cs">
+      <DependentUpon>OffersList.aspx</DependentUpon>
     </Compile>
     <Compile Include="PublicPages\TestPage2.aspx.cs">
       <DependentUpon>TestPage2.aspx</DependentUpon>
@@ -632,7 +624,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UploadedImages\Teasers\" />
+    <Folder Include="EditorPages\Teasers\" />
+    <Folder Include="UploadedImages\Offers\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="jquery-tooltip\todo" />

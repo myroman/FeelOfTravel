@@ -26,11 +26,10 @@ namespace FeelOfTravel.SqlDataAccess.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=RPAVLUSHCHENKO\\SWEDENSERVER;Initial Catalog=FeelOfTravelDb;Integrated" +
-            " Security=True")]
-        public string FeelOfTravelDbConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=FeelOfTravel;Persist Security Info=True;User ID=sa")]
+        public string FeelOfTravelConnectionString {
             get {
-                return ((string)(this["FeelOfTravelDbConnectionString"]));
+                return ((string)(this["FeelOfTravelConnectionString"]));
             }
         }
     }

@@ -62,31 +62,35 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Article.cs" />
-    <Compile Include="Domain\ArticleType.cs">
+    <Compile Include="Domain\CoreArticleData.cs" />
+    <Compile Include="Domain\InformationCategories.cs" />
+    <Compile Include="Domain\InformationCategory.cs" />
+    <Compile Include="Domain\Offer.cs" />
+    <Compile Include="Domain\OfferType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Domain\ArticleTypes.cs" />
+    <Compile Include="Domain\OfferTypes.cs" />
     <Compile Include="Domain\BusinessObjectBase.cs" />
     <Compile Include="Domain\IEditorialEntity.cs" />
     <Compile Include="Domain\SimplePageType.cs" />
-    <Compile Include="Domain\Teaser.cs" />
     <Compile Include="Domain\DomainException.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Repositories\IArticleRepository.cs" />
-    <Compile Include="Repositories\IArticleTypeRepository.cs" />
+    <Compile Include="Repositories\ICategoryRepository.cs" />
+    <Compile Include="Repositories\IOfferRepository.cs" />
+    <Compile Include="Repositories\IOfferTypeRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\ISimplePageRepository.cs" />
-    <Compile Include="Repositories\ITeaserRepository.cs" />
-    <Compile Include="Services\ArticleService.cs" />
-    <Compile Include="Services\IArticleService.cs" />
-    <Compile Include="Services\ITeaserService.cs" />
+    <Compile Include="Services\CategoryPresenter\CategoryData.cs" />
+    <Compile Include="Services\CategoryPresenter\CategoryPresenter.cs" />
+    <Compile Include="Services\CategoryPresenter\ICategoryPresenter.cs" />
+    <Compile Include="Services\OfferService.cs" />
+    <Compile Include="Services\IOfferService.cs" />
     <Compile Include="Services\ServiceRegistrationModule.cs" />
-    <Compile Include="Services\TeaserService.cs" />
+    <Compile Include="Utils\EnumHelpers.cs" />
     <Compile Include="Utils\HtmlCoder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\JsonHelper.cs" />

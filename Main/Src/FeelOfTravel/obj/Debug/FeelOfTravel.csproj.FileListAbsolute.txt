@@ -29,15 +29,3 @@ D:\Projects\FeelOfTravel\FeelOfTravel\bin\FeelOfTravel.SqlDataAccess.pdb
 D:\Projects\FeelOfTravel\FeelOfTravel\bin\Autofac.xml
 D:\Projects\ff Tfs upload\Main\Src\FeelOfTravel\obj\Debug\FeelOfTravel.dll
 D:\Projects\ff Tfs upload\Main\Src\FeelOfTravel\obj\Debug\FeelOfTravel.pdb
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel\bin\Autofac.xml
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel\obj\Debug\ResolveAssemblyReference.cache
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel\bin\FeelOfTravel.dll
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel\bin\FeelOfTravel.pdb
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel\bin\AjaxControlToolkit.dll
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel\bin\Autofac.dll
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel\bin\FeelOfTravel.Business.dll
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel\bin\FeelOfTravel.SqlDataAccess.dll
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel\bin\FeelOfTravel.Business.pdb
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel\bin\FeelOfTravel.SqlDataAccess.pdb
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel\obj\Debug\FeelOfTravel.dll
-D:\Projects\Project_FeelOfTravel\Main\Src\FeelOfTravel\obj\Debug\FeelOfTravel.pdb

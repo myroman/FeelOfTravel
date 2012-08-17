@@ -1,36 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FeelOfTravelDb" Class="DbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=RPAVLUSHCHENKO\SWEDENSERVER;Initial Catalog=FeelOfTravelDb;Integrated Security=True" SettingsObjectName="FeelOfTravel.SqlDataAccess.Properties.Settings" SettingsPropertyName="FeelOfTravelDbConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FeelOfTravel" Class="DbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=FeelOfTravel;Persist Security Info=True;User ID=sa" SettingsObjectName="FeelOfTravel.SqlDataAccess.Properties.Settings" SettingsPropertyName="FeelOfTravelConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tbAboutPage" Member="tbAboutPages">
     <Type Name="tbAboutPage">
       <Column Name="entryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="text" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.tbTeasers" Member="tbTeasers">
-    <Type Name="tbTeaser">
-      <Column Name="teaserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="preamble" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="imageLink" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="relatedArticleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="tbArticle_tbTeaser" Member="tbArticle" ThisKey="relatedArticleId" OtherKey="articleId" Type="tbArticle" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbArticles" Member="tbArticles">
-    <Type Name="tbArticle">
-      <Column Name="articleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="articleTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="header" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="text" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Association Name="tbArticle_tbTeaser" Member="tbTeasers" ThisKey="articleId" OtherKey="relatedArticleId" Type="tbTeaser" />
-      <Association Name="tbArticleType_tbArticle" Member="tbArticleType" ThisKey="articleTypeId" OtherKey="articleTypeId" Type="tbArticleType" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbArticleTypes" Member="tbArticleTypes">
-    <Type Name="tbArticleType">
-      <Column Name="articleTypeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="articleType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="tbArticleType_tbArticle" Member="tbArticles" ThisKey="articleTypeId" OtherKey="articleTypeId" Type="tbArticle" />
+  <Table Name="dbo.tbOfferTypes" Member="tbOfferTypes">
+    <Type Name="tbOfferType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="tbOfferType_tbOffer" Member="tbOffers" ThisKey="id" OtherKey="typeId" Type="tbOffer" />
     </Type>
   </Table>
   <Table Name="dbo.tbContactsPage" Member="tbContactsPages">
@@ -39,10 +19,33 @@
       <Column Name="text" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.tbMainPage" Member="tbMainPages">
-    <Type Name="tbMainPage">
-      <Column Name="entryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+  <Table Name="dbo.tbInformationCategories" Member="tbInformationCategories">
+    <Type Name="tbInformationCategory">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="tbInformationCategory_tbCoreArticleData" Member="tbCoreArticleDatas" ThisKey="id" OtherKey="categoryId" Type="tbCoreArticleData" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbOffers" Member="tbOffers">
+    <Type Name="tbOffer">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="coreArticleDataId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="typeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tbOfferType_tbOffer" Member="tbOfferType" ThisKey="typeId" OtherKey="id" Type="tbOfferType" IsForeignKey="true" />
+      <Association Name="tbCoreArticleData_tbOffer" Member="tbCoreArticleData" ThisKey="coreArticleDataId" OtherKey="id" Type="tbCoreArticleData" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbCoreArticleData" Member="tbCoreArticleDatas">
+    <Type Name="tbCoreArticleData">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="categoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="header" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="text" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="imageUrl" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="publishDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="tbCoreArticleData_tbOffer" Member="tbOffers" ThisKey="id" OtherKey="coreArticleDataId" Type="tbOffer" />
+      <Association Name="tbInformationCategory_tbCoreArticleData" Member="tbInformationCategory" ThisKey="categoryId" OtherKey="id" Type="tbInformationCategory" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

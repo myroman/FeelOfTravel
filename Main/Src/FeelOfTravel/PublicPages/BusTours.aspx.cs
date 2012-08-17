@@ -10,15 +10,13 @@ namespace FeelOfTravel.PublicPages
 {
     public partial class BusTours : System.Web.UI.Page
     {
-        private ITeaserService teaserService;
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            teaserService = CompositionRootHelper.GetCompositionRoot(Context).TeaserService;
-            if (!IsPostBack)
-            {
-                tsvBusTours.DataSource = teaserService.GetTeasers(ArticleTypes.BusTours);
-            }
+            //teaserService = CompositionRootHelper.GetCompositionRoot(Context).TeaserService;
+            //if (!IsPostBack)
+            //{
+            //    tsvBusTours.DataSource = teaserService.GetTeasers(OfferTypes.BusTours);
+            //}
         }
     }
 }
